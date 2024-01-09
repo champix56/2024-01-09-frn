@@ -6,13 +6,8 @@ const App = props => {
   return (
     <SafeAreaView>
       <View>
-        <Button />
-        <Button />
-        <Button />
-        <Button />
-        <Button />
-        <Button />
-        <Button />
+        <Button text="Benjamin" bgColor="tomato" color="white" />
+        <Button text="dfghjk" bgColor="skyblue" />
       </View>
     </SafeAreaView>
   );
