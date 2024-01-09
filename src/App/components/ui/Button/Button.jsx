@@ -17,4 +17,8 @@ Button.propTypes = {
   bgColor: PropTypes.oneOf(['tomato', 'skyblue']),
   color: PropTypes.string.isRequired,
 };
+Button.defaultProps = {
+  bgColor: 'skyblue',
+  text: 'value',
+};
 export default Button;

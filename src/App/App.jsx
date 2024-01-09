@@ -8,6 +8,7 @@ const App = props => {
       <View>
         <Button text="Benjamin" bgColor="tomato" color="white" />
         <Button text="dfghjk" bgColor="skyblue" />
+        <Button bgColor="skyblue" />
       </View>
     </SafeAreaView>
   );
