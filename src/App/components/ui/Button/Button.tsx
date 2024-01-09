@@ -2,7 +2,12 @@ import React from 'react';
 import {Text, TouchableHighlight, View} from 'react-native';
 import PropTypes from 'prop-types';
 
-const Button = props => {
+interface IButtonProps {
+  text?: string;
+  bgColor?: 'tomato' | 'skyblue' | undefined;
+  color?: string;
+}
+const Button: React.FC<IButtonProps> = props => {
   console.log(props);
   return (
     <TouchableHighlight>
@@ -13,7 +18,7 @@ const Button = props => {
   );
 };
 Button.propTypes = {
-  text: PropTypes.string.isRequired,
+  text: PropTypes.string,
   bgColor: PropTypes.oneOf(['tomato', 'skyblue']),
   color: PropTypes.string.isRequired,
 };
