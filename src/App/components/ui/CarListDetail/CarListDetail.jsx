@@ -1,25 +1,21 @@
 import React from 'react';
 import {View, Text, Image} from 'react-native';
-
+import style from './CarListDetail.style';
+const image = require('../../../assets/images/car3D.png');
 const CarListDetail = props => {
   return (
-    <View>
-      <Image
-        src={require('../../../assets/images/car3D.png')}
-        style={{width: '64'}}
-      />
+    <View style={style.container}>
+      <Image source={props.image} style={style.carImage} />
       <View>
-        <View>
-          <Text>
-            {props.ref}::{props.model}
-          </Text>
-        </View>
-        <View>
+        <View style={style.infos}>
+          <Text style={style.title}>{props.immat}</Text>
+          <Text>{props.model}</Text>
+
           <Text>{props.state}</Text>
         </View>
       </View>
     </View>
   );
 };
-
+CarListDetail.defaultProps = {image: image};
 export default CarListDetail;

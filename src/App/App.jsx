@@ -1,14 +1,14 @@
 import React from 'react';
 import {SafeAreaView, View} from 'react-native';
-import Button from './components/ui/Button/Button';
-
+import CarListPage from './pages/CarsListPage/CarsListPage';
+import {cars} from './datasets/cars.json';
+import VehiculeEditor from './components/functionnal/forms/VehiculeEditor/VehiculeEditor';
 const App = props => {
   return (
     <SafeAreaView>
       <View>
-        <Button text="Benjamin" bgColor="tomato" color="white" />
-        <Button text="dfghjk" bgColor="skyblue" />
-        <Button bgColor="skyblue" />
+        {/* <CarListPage cars={cars} /> */}
+        <VehiculeEditor />
       </View>
     </SafeAreaView>
   );

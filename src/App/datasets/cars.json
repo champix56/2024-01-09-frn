@@ -1,0 +1,76 @@
+{
+    "cars": [
+        {
+            "id": 0,
+            "model": "tesla",
+            "immat": "XY-123-AB",
+            "state": "disponible"
+        },
+        {
+            "id": 1,
+            "model": "MX5",
+            "immat": "BY-188-CZ",
+            "state": "indisponible"
+        },
+        {
+            "id": 2,
+            "model": "Capture",
+            "immat": "ZZ-123-AB",
+            "state": "disponible"
+        },
+        {
+            "id": 3,
+            "model": "Megane",
+            "immat": "MG-123-CZ",
+            "state": "disponible"
+        },
+        {
+            "id": 4,
+            "model": "KADJAR",
+            "immat": "XY-254-CZ",
+            "state": "disponible"
+        },
+        {
+            "id": 5,
+            "model": "tesla",
+            "immat": "ZY-123-AB",
+            "state": "disponible"
+        },
+        {
+            "id": 6,
+            "model": "tesla",
+            "immat": "CB-123-AB",
+            "state": "disponible"
+        },
+        {
+            "id": 7,
+            "model": "tesla",
+            "immat": "XY-123-AB",
+            "state": "disponible"
+        },
+        {
+            "id": 8,
+            "model": "tesla",
+            "immat": "XY-123-AB",
+            "state": "disponible"
+        },
+        {
+            "id": 9,
+            "model": "tesla",
+            "immat": "XY-123-AB",
+            "state": "disponible"
+        },
+        {
+            "id": 10,
+            "model": "tesla",
+            "immat": "XY-123-AB",
+            "state": "disponible"
+        },
+        {
+            "id": 10,
+            "model": "tesla",
+            "immat": "XY-123-AB",
+            "state": "disponible"
+        }
+    ]
+}
