@@ -7,13 +7,31 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import {cars} from '../../db/db.json';
 import CarForScrollList from './components/ui/CarForScrollList/CarForScrollList';
 
 const App = props => {
   const [parc, setParc] = useState([]);
+  const getDatas = () => {
+    let lastid = -1;
+    if (parc.length > 0) {
+      lastid = parc[parc.length - 1].id;
+    }
+    console.log('fetch datasr');
+    fetch(
+      `https://formationreactnative-6e313d-expose.insign.agency/cars?id_gte=${
+        lastid + 1
+      }`,
+    )
+      .then(e => {
+        console.log(e);
+        return e.json();
+      })
+      .then(carsRest => setParc([...parc, ...carsRest]));
+  };
   useEffect(() => {
-    setParc([...cars]);
+    //setParc([...cars]);
+    getDatas();
+    setInterval(() => getDatas(), 10000);
   }, []);
   return (
     <SafeAreaView>

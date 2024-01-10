@@ -8,9 +8,11 @@
     "lint": "eslint .",
     "start": "react-native start",
     "startExperimental": "react-native start --experimental-debugger",
-    "test": "jest"
+    "test": "jest",
+    "json": "json-server -p 5608 db/db.json"
   },
   "dependencies": {
+    "json-server": "^0.17.4",
     "react": "18.2.0",
     "react-native": "0.73.2"
   },
