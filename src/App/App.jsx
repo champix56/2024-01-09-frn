@@ -1,13 +1,32 @@
-import React from 'react';
-import {SafeAreaView, View} from 'react-native';
+import React, {useEffect, useState} from 'react';
+import {
+  Button,
+  SafeAreaView,
+  ScrollView,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import {cars} from '../../db/db.json';
 import CarForScrollList from './components/ui/CarForScrollList/CarForScrollList';
 
 const App = props => {
+  const [parc, setParc] = useState([]);
+  useEffect(() => {
+    setParc([...cars]);
+  }, []);
   return (
     <SafeAreaView>
       <View>
-        <CarForScrollList {...cars[0]} />
+        <ScrollView>
+          {parc.map((auto, i) => {
+            return (
+              <TouchableOpacity key={i}>
+                <CarForScrollList {...auto} />
+              </TouchableOpacity>
+            );
+          })}
+        </ScrollView>
       </View>
     </SafeAreaView>
   );
