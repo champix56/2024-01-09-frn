@@ -18,7 +18,7 @@ const CarForScrollList = props => {
 };
 CarForScrollList.propTypes = {
   immat: PropTypes.string.isRequired,
-  image: PropTypes.string.isRequired,
+  image: PropTypes.any.isRequired,
   marque: PropTypes.string.isRequired,
   model: PropTypes.string.isRequired,
   present: PropTypes.bool.isRequired,

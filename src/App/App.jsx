@@ -8,8 +8,10 @@ import {
   View,
 } from 'react-native';
 import CarForScrollList from './components/ui/CarForScrollList/CarForScrollList';
-
+import CarList from './pages/CarList/CarList';
+import {store} from './store/store';
 const App = props => {
+  console.log(store);
   const [parc, setParc] = useState([]);
   const getDatas = () => {
     let lastid = -1;
@@ -23,7 +25,7 @@ const App = props => {
       }`,
     )
       .then(e => {
-        console.log(e);
+        // console.log(e);
         return e.json();
       })
       .then(carsRest => setParc([...parc, ...carsRest]));
@@ -31,21 +33,11 @@ const App = props => {
   useEffect(() => {
     //setParc([...cars]);
     getDatas();
-    setInterval(() => getDatas(), 10000);
+    //setInterval(() => getDatas(), 10000);
   }, []);
   return (
     <SafeAreaView>
-      <View>
-        <ScrollView>
-          {parc.map((auto, i) => {
-            return (
-              <TouchableOpacity key={i}>
-                <CarForScrollList {...auto} />
-              </TouchableOpacity>
-            );
-          })}
-        </ScrollView>
-      </View>
+      <CarList cars={parc} />
     </SafeAreaView>
   );
 };
