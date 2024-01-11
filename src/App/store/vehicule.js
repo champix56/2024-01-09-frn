@@ -1,11 +1,11 @@
 import {createSlice} from '@reduxjs/toolkit';
 
 const initialState = {
-  marque: 'Renault',
-  model: 'En panne',
-  immat: 'NC',
-  kms: 1000,
-  present: true,
+  marque: '',
+  model: '',
+  immat: '',
+  kms: 0,
+  present: false,
 };
 
 const vehicule = createSlice({

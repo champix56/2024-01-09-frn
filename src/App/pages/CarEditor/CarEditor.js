@@ -53,6 +53,8 @@ const CarEditor = props => {
             }}
           />
           <TextInput
+            keyboardType="number-pad"
+            keyboardAppearance="dark"
             style={{...style.inputBig, ...style.input}}
             placeholder="kms"
             value={props.car.kms.toString()}
@@ -67,7 +69,7 @@ const CarEditor = props => {
               flexDirection: 'row',
               justifyContent: 'center',
             }}>
-            <Text style={style.inputBig}>d</Text>
+            <Text style={style.inputBig}>dispo :</Text>
             <Switch
               style={{...style.input}}
               value={props.car.present}
