@@ -90,7 +90,7 @@ const CarEditor = props => {
     </View>
   );
 };
-CarEditor.PropTypes = {
+CarEditor.propTypes = {
   car: PropTypes.object.isRequired,
   onSave: PropTypes.func.isRequired,
   onChange: PropTypes.func.isRequired,
