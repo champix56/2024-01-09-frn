@@ -10,6 +10,11 @@ import {
 import CarForScrollList from './components/ui/CarForScrollList/CarForScrollList';
 import CarList from './pages/CarList/CarList';
 import {store} from './store/store';
+import {createStackNavigator} from '@react-navigation/stack';
+import {NavigationContainer, useNavigation} from '@react-navigation/native';
+import Home from './pages/Home/Home';
+const Stack = createStackNavigator();
+
 const App = props => {
   console.log(store);
   const [parc, setParc] = useState([]);
@@ -19,10 +24,9 @@ const App = props => {
       lastid = parc[parc.length - 1].id;
     }
     console.log('fetch datasr');
+    //fetch(`https://formationreactnative-6e313d-expose.insign.agency/cars?id_gte=${lastid + 1}`,)
     fetch(
-      `https://formationreactnative-6e313d-expose.insign.agency/cars?id_gte=${
-        lastid + 1
-      }`,
+      `https://5fe1-217-181-159-166.ngrok-free.app/cars?id_gte=${lastid + 1}`,
     )
       .then(e => {
         // console.log(e);
@@ -37,7 +41,22 @@ const App = props => {
   }, []);
   return (
     <SafeAreaView>
-      <CarList cars={parc} />
+      <NavigationContainer>
+        <Stack.Navigator initialRouteName="home">
+          <Stack.Screen
+            name="home"
+            options={{title: 'home'}}
+            component={Home}
+          />
+          <Stack.Screen name="list">
+            {p => {
+              return <CarList cars={parc} />;
+            }}
+          </Stack.Screen>
+        </Stack.Navigator>
+      </NavigationContainer>
+
+      {/* <CarList cars={parc} /> */}
     </SafeAreaView>
   );
 };
