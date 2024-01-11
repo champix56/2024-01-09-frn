@@ -87,7 +87,7 @@ const CarEditor = props => {
           alignItems: 'space-between',
         }}>
         <Button title="Cancel" style={{width: '45%'}} />
-        <Button title="OK" style={{width: '45%'}} />
+        <Button title="OK" onPress={evt => props.onSave(props.car)} />
       </View>
     </View>
   );

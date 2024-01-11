@@ -24,6 +24,14 @@ const vehicules = createSlice({
       console.log(a);
       s.push(...a.payload);
     });
+    builder.addCase('a_car/saveCar/fulfilled', (s, a) => {
+      const position = s.findIndex(c => c.id === a.payload.id);
+      if (position >= 0) {
+        s.push(a.payload);
+      } else {
+        s[position] = a.payload;
+      }
+    });
     // builder.addDefaultCase((s, a) => {
     //   console.log(s, a);
     // });

@@ -1,4 +1,5 @@
-import {createSlice} from '@reduxjs/toolkit';
+import {createAsyncThunk, createSlice} from '@reduxjs/toolkit';
+import {ToastAndroid, Vibration} from 'react-native';
 
 const initialState = {
   marque: '',
@@ -21,8 +22,29 @@ const vehicule = createSlice({
       Object.assign(s, initialState);
     },
   },
+  extraReducers: builder => {
+    builder.addCase(saveCar.fulfilled, (s, a) => {
+      Object.assign(s, a.payload);
+      ToastAndroid.show('saved:' + JSON.stringify(a), ToastAndroid.SHORT);
+    });
+  },
 });
 
 export const {clearData, setDatas} = vehicule.actions;
 const currentReducer = vehicule.reducer;
 export default currentReducer;
+
+export const saveCar = createAsyncThunk('a_car/save', async data => {
+  Vibration.vibrate(900);
+  const pr = await fetch(
+    `https://formationReactNative-0c8685-expose.insign.agency/cars${
+      undefined !== data.id ? '/' + data.id : '/'
+    }`,
+    {
+      method: undefined !== data.id ? 'PUT' : 'POST',
+      headers: {'Content-type': 'application/json'},
+      body: JSON.stringify(data),
+    },
+  );
+  return await pr.json();
+});
