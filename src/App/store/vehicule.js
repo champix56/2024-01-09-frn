@@ -1,36 +1,28 @@
-import {createAsyncThunk, createSlice} from '@reduxjs/toolkit';
+import {createSlice} from '@reduxjs/toolkit';
 
-const initialState = [];
+const initialState = {
+  marque: 'Renault',
+  model: 'En panne',
+  immat: 'NC',
+  kms: 1000,
+  present: true,
+};
 
 const vehicule = createSlice({
-  name: 'vehicules',
+  name: 'a_car',
   initialState,
   reducers: {
-    addCar: (state, action) => {
-      state.push(action.payload);
+    setDatas: (s, a) => {
+      delete s.id;
+      Object.assign(s, a.payload);
     },
-    addCars: (s, a) => {
-      s.push(...a.payload);
-    },
-    editCarData: (s, a) => {
-      Object.assign(
-        s.find(v => v.id === a.payload.id),
-        a.payload,
-      );
+    clearData: (s, a) => {
+      delete s.id;
+      Object.assign(s, initialState);
     },
   },
 });
 
-export const {addCar, addCars, editCarData} = vehicule.actions;
-const vehiculeReducer = vehicule.reducer;
-export default vehiculeReducer;
-// console.log(vehicule.actions.addCar({data: 1}));
-export const fetchInitialVehicule = createAsyncThunk(
-  'vehicules/fetchCars',
-  async () => {
-    const pr = await fetch(
-      'https://formationreactnative-6e313d-expose.insign.agency/cars',
-    );
-    return await pr.json();
-  },
-);
+export const {clearData, setDatas} = vehicule.actions;
+const currentReducer = vehicule.reducer;
+export default currentReducer;

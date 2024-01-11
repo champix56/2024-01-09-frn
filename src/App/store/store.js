@@ -1,7 +1,9 @@
-import {configureStore} from '@reduxjs/toolkit';
-import vehiculeReducer, { addCar } from './vehicule';
-export const store = configureStore({reducer: vehiculeReducer});
+import {combineReducers, configureStore} from '@reduxjs/toolkit';
+import vehiculesReducer, {fetchInitialvehicules} from './vehicules';
+import currentReducer from './vehicule';
+export const store = configureStore({
+  reducer: combineReducers({list: vehiculesReducer, current: currentReducer}),
+});
 
 store.subscribe(() => console.log('sub', store.getState()));
-
-store.dispatch(addCar({id: 0, marque: 'Renault', model: 'en panne'}));
+store.dispatch(fetchInitialvehicules());

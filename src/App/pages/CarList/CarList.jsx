@@ -3,7 +3,9 @@ import {
   StyleSheet,
   Text,
   TextInput,
+  ToastAndroid,
   TouchableOpacity,
+  Vibration,
   View,
 } from 'react-native';
 import React, {useEffect, useState} from 'react';
@@ -30,7 +32,16 @@ const CarList = props => {
                 e.marque.toLowerCase().includes(textFilter.toLowerCase()),
             )
             .map((auto, i) => (
-              <TouchableOpacity key={i}>
+              <TouchableOpacity
+                key={i}
+                onPress={evt => {
+                  //Vibration.vibrate(200);
+                  ToastAndroid.show(
+                    `${auto.immat} est selectionné en courrant`,
+                    ToastAndroid.LONG,
+                  );
+                  props.aCarIsTap(auto);
+                }}>
                 <CarForScrollList {...auto} />
               </TouchableOpacity>
             ))}
@@ -43,5 +54,6 @@ const CarList = props => {
 export default CarList;
 CarList.propTypes = {
   cars: PropTypes.array.isRequired,
+  aCarIsTap: PropTypes.func,
 };
 const styles = StyleSheet.create({});
