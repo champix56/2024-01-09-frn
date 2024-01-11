@@ -1,18 +1,31 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import {SafeAreaView} from 'react-native';
-import CarList from './pages/CarList/CarList.stored';
 import {store} from './store/store';
 import {Provider} from 'react-redux';
-import CarEditor from './pages/CarEditor/CarEDitor.stored';
+
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {NavigationContainer} from '@react-navigation/native';
+
 import Home from './pages/Home/Home';
+import CarList from './pages/CarList/CarList.stored';
+const Stack = createNativeStackNavigator();
 const App = props => {
   return (
     <Provider store={store}>
-      <SafeAreaView>
-        {/* <CarList /> */}
-        {/* <CarEditor /> */}
-        <Home />
-      </SafeAreaView>
+      {/* <SafeAreaView> */}
+      <NavigationContainer>
+        <Stack.Navigator initialRouteName="Home">
+          <Stack.Screen name="Home" options={{headerShown: false}}>
+            {p => <Home />}
+          </Stack.Screen>
+          <Stack.Screen
+            name="List"
+            options={{headerShown: false}}
+            component={CarList}
+          />
+        </Stack.Navigator>
+      </NavigationContainer>
+      {/* </SafeAreaView> */}
     </Provider>
   );
 };

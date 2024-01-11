@@ -1,7 +1,8 @@
 import {Button, Image, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
-
+import useNavigation from '@react-navigation/native';
 const Home = props => {
+  //const nav = useNavigation();
   console.log(props);
   return (
     <View
@@ -31,7 +32,12 @@ const Home = props => {
           width: '100%',
         }}>
         <Button title="New car" />
-        <Button title="view cars" />
+        <Button
+          title="view cars"
+          onPress={evt => {
+            //nav.navigate('List');
+          }}
+        />
       </View>
     </View>
   );
