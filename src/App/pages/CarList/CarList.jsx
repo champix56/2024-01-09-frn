@@ -41,6 +41,7 @@ const CarList = props => {
                     ToastAndroid.LONG,
                   );
                   props.aCarIsTap(auto);
+                  props.navigation.navigate('Editor');
                 }}>
                 <CarForScrollList {...auto} />
               </TouchableOpacity>

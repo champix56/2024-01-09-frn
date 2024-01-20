@@ -2,7 +2,8 @@ import {Button, Image, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import useNavigation from '@react-navigation/native';
 const Home = props => {
-  //const nav = useNavigation();
+  console.log(props);
+  //aconst nav = useNavigation();
   console.log(props);
   return (
     <View
@@ -31,11 +32,16 @@ const Home = props => {
           flexDirection: 'row',
           width: '100%',
         }}>
-        <Button title="New car" />
+        <Button
+          title="New car"
+          onPress={evt => {
+            props.navigation.navigate('Editor');
+          }}
+        />
         <Button
           title="view cars"
           onPress={evt => {
-            //nav.navigate('List');
+            props.navigation.navigate('List');
           }}
         />
       </View>

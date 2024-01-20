@@ -8,6 +8,7 @@ import {NavigationContainer} from '@react-navigation/native';
 
 import Home from './pages/Home/Home';
 import CarList from './pages/CarList/CarList.stored';
+import CarEditor from './pages/CarEditor/CarEDitor.stored';
 const Stack = createNativeStackNavigator();
 const App = props => {
   return (
@@ -15,9 +16,16 @@ const App = props => {
       {/* <SafeAreaView> */}
       <NavigationContainer>
         <Stack.Navigator initialRouteName="Home">
-          <Stack.Screen name="Home" options={{headerShown: false}}>
-            {p => <Home />}
-          </Stack.Screen>
+          <Stack.Screen
+            name="Home"
+            options={{headerShown: false}}
+            component={Home}
+          />
+          <Stack.Screen
+            name="Editor"
+            options={{headerShown: false}}
+            component={CarEditor}
+          />
           <Stack.Screen
             name="List"
             options={{headerShown: false}}
