@@ -1,5 +1,6 @@
 import {createAsyncThunk, createSlice} from '@reduxjs/toolkit';
 import {ToastAndroid, Vibration} from 'react-native';
+import {REST_ADR} from '../config/config';
 
 const initialState = {
   marque: '',
@@ -37,9 +38,7 @@ export default currentReducer;
 export const saveCar = createAsyncThunk('a_car/save', async data => {
   Vibration.vibrate(900);
   const pr = await fetch(
-    `https://formationReactNative-0c8685-expose.insign.agency/cars${
-      undefined !== data.id ? '/' + data.id : '/'
-    }`,
+    `${REST_ADR}/cars${undefined !== data.id ? '/' + data.id : '/'}`,
     {
       method: undefined !== data.id ? 'PUT' : 'POST',
       headers: {'Content-type': 'application/json'},

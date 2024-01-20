@@ -1,4 +1,5 @@
 import {createAsyncThunk, createSlice} from '@reduxjs/toolkit';
+import { REST_ADR } from '../config/config';
 
 const initialState = [];
 
@@ -46,9 +47,7 @@ export const fetchInitialvehicules = createAsyncThunk(
   'vehicules/fetchCars',
   async () => {
     // const pr = await fetch('https://77cf-164-177-69-111.ngrok-free.app/cars');
-    const pr = await fetch(
-      'https://formationReactNative-0c8685-expose.insign.agency/cars',
-    );
+    const pr = await fetch(`${REST_ADR}/cars`);
     return await pr.json();
   },
 );
