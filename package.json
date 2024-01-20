@@ -9,7 +9,7 @@
     "start": "react-native start",
     "startExperimental": "react-native start --experimental-debugger",
     "test": "jest",
-    "json": "json-server -p 5608 db/db.json"
+    "json": "json-server --host 0.0.0.0 -p 5608 db/db.json"
   },
   "dependencies": {
     "@react-navigation/native": "^6.1.9",
