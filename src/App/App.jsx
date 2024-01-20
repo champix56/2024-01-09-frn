@@ -16,11 +16,9 @@ const App = props => {
       {/* <SafeAreaView> */}
       <NavigationContainer>
         <Stack.Navigator initialRouteName="Home">
-          <Stack.Screen
-            name="Home"
-            options={{headerShown: false}}
-            component={Home}
-          />
+          <Stack.Screen name="Home" options={{headerShown: false}}>
+            {p => <Home {...p} />}
+          </Stack.Screen>
           <Stack.Screen
             name="Editor"
             options={{headerShown: false}}
