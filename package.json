@@ -10,7 +10,7 @@
     "startExperimental": "react-native start --experimental-debugger",
     "test": "jest",
     "json": "npm run adbReverse5608 | json-server --host 0.0.0.0 -p 5608 db/db.json",
-    "adbReverse5608":"adb reverse tcp:5608 tcp5608"
+    "adbReverse5608":"adb reverse tcp:5608 tcp:5608"
   },
   "dependencies": {
     "@react-navigation/native": "^6.1.9",
