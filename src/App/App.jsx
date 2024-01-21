@@ -9,6 +9,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import Home from './pages/Home/Home';
 import CarList from './pages/CarList/CarList.stored';
 import CarEditor from './pages/CarEditor/CarEDitor.stored';
+import ClientList from './pages/ClientList/ClientList.stored';
 const Stack = createNativeStackNavigator();
 const App = props => {
   return (
@@ -28,6 +29,11 @@ const App = props => {
             name="List"
             options={{headerShown: false}}
             component={CarList}
+          />
+          <Stack.Screen
+            name="Clients"
+            options={{headerShown: false}}
+            component={ClientList}
           />
         </Stack.Navigator>
       </NavigationContainer>

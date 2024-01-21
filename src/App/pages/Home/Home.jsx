@@ -1,6 +1,5 @@
-import {Button, Image, StyleSheet, Text, View} from 'react-native';
+import {Button, Image, Text, View} from 'react-native';
 import React from 'react';
-import useNavigation from '@react-navigation/native';
 const Home = props => {
   console.log(props);
   //aconst nav = useNavigation();
@@ -25,6 +24,7 @@ const Home = props => {
         }}>
         Car Rent
       </Text>
+
       <View
         style={{
           flexGrow: 1,
@@ -44,11 +44,15 @@ const Home = props => {
             props.navigation.navigate('List');
           }}
         />
+        <Button
+          title="Clients"
+          onPress={evt => {
+            props.navigation.navigate('Clients');
+          }}
+        />
       </View>
     </View>
   );
 };
 
 export default Home;
-
-const styles = StyleSheet.create({});
